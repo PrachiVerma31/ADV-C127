@@ -11,3 +11,44 @@ var timerCheck="";
 var drawSketch="";
 var answerHolder="";
 var score=0;
+
+function preload(){
+
+}
+
+function setup(){
+var canvas = createCanvas(280,280);
+canvas.center();
+background("white");
+}
+
+function draw(){
+check_sketch();
+if(drawSketch==sketch){
+    answerHolder="set";
+    score++;
+    document.getElementById("score").innerHTML="Score: "+score;
+}
+}
+
+function check_sketch(){
+timerCounter++;
+document.getElementById("timer").innerHTML="Timer: "+timerCounter;
+if(timerCounter>400){
+    timerCounter=0;
+    timerCheck="Completed";
+}
+if(timerCheck=="Completed" || answerHolder=="set"){
+    timerCheck="";
+    answerHolder="";
+    update_canvas();
+}
+}
+
+function update_canvas(){
+    background("white");
+    randomNumber=Math.floor((Math.random()*quick_draw_data_set.length)+1);
+    console.log(quick_draw_data_set[randomNumber]);
+    sketch=quick_draw_data_set[randomNumber];
+    document.getElementById("sketchName").innerHTML= "Sketch to be drawn: "+sketch;
+}

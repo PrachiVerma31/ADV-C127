@@ -8,7 +8,7 @@ body{
 }
 
 #timer{
-    font-size: 35px;
+    font-size: 30px;
     float: right;
     margin-right: 20px;
 }
@@ -16,3 +16,27 @@ body{
 #sketchName{
     color: rgb(190, 15, 15);
 }
+
+#show_sketch{
+    float:right;
+}
+
+canvas{
+    border:5px solid white;
+    border-radius: 20px;
+    margin-top: 60px;
+    animation-name: glowing;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes glowing{
+    from{box-shadow: 1px 1px 38px grey;}
+    to{box-shadow: 1px 1px 38px rgb(255, 255, 255);}
+}
+
+p, span{
+    padding-top:10px;
+    font-size:25px;
+}
+
